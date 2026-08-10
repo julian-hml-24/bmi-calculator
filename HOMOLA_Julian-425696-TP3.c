@@ -31,5 +31,15 @@ int main(void)
     printf("|   25 < Indice   |= Malo |\n");
     printf("|-----------------|-------|\n");
 
+    printf("Según la tabla, usted se encuentra en la categoría: ");
+    if (indice < 16)
+        printf("Malo (IMC < 16)\n");
+    else if (indice > 16 && indice < 25)
+        printf("Bien (16 < IMC < 25)\n");
+    else if (indice > 25)
+        printf("Malo (IMC > 25)\n");
+    else
+        printf("límite (IMC = 16 o 25, no definido en la tabla)\n");
+
     return 0;
 }
