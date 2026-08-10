@@ -3,22 +3,34 @@ Programa para calcular el Indice de Masa Corporal (IMC) del usuario.
 Solicita peso en kilogramos y altura en metros.
 Luego aplica la fórmula: IMC = peso / (altura * altura).
 Finalmente muestra el resultado numérico junto con una tabla de referencia
-para que el usuario pueda interpretar su IMC.
+para que el usuario pueda interpretar su IMC, e indica en qué categoría se encuentra.
 */
 
 #include <stdio.h>
 
-int main(void)
+   int main(void)
 {
     int peso = 0;
-    float altura = 0; 
-    float indice = 0;
+    float altura = 0.0f; 
+    float indice = 0.0f;
 
-    printf("Ingrese su peso (kg): \n");
-    scanf ("%d",&peso);
+    
+    do {
+        printf("Ingrese su peso (kg): \n");
+        scanf("%d", &peso);
+        if (peso <= 0) {
+            printf("No se permiten números negativos ni cero. Intente de nuevo.\n");
+        }
+    } while (peso <= 0);
 
-    printf("Ingrese su altura (m): \n");
-    scanf ("%f",&altura);
+    
+    do {
+        printf("Ingrese su altura (m): \n");
+        scanf("%f", &altura);
+        if (altura <= 0.0f) {
+            printf("No se permiten números negativos ni cero. Intente de nuevo.\n");
+        }
+    } while (altura <= 0.0f);
 
     indice = peso/(altura*altura);
     printf("Su indice es: %.2f\n", indice);
@@ -42,4 +54,5 @@ int main(void)
         printf("límite (IMC = 16 o 25, no definido en la tabla)\n");
 
     return 0;
+
 }
